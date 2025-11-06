@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Echo Wellbeing — Student Support Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/mascot.png" alt="Mascot" class="mascot-small" />
+        <div class="brand-text">
+          <div class="title">Echo Wellbeing</div>
+          <div class="subtitle">Practical support for student mental wellbeing</div>
+        </div>
+      </div>
+
+      <button id="navToggle" class="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#need-help">Need Help</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#swemwbs">Check-in</a></li>
+          <li><a href="#resources">Resources</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#need-help" class="btn btn-cta">Need Help — Get Support</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <h1>Mental wellbeing — practical support for students</h1>
+        <p class="lead">Clear, compassionate guidance and immediate help when you need it.</p>
+        <div class="hero-actions">
+          <a href="#swemwbs" class="btn">Quick check-in (SWEMWBS)</a>
+          <a href="#tools" class="btn btn-outline">Grounding & tools</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout grid -->
+    <section class="container layout-grid">
+      <!-- Main column -->
+      <div class="col main-col">
+
+        <!-- Need Help -->
+        <section id="need-help" class="card" aria-labelledby="needTitle">
+          <h2 id="needTitle">Need Help — Immediate options</h2>
+          <p class="muted">If you're in crisis or feel unsafe, use the numbers below. If not, try tools on this page or reach out to a professional.</p>
+
+          <div class="urgent-row">
+            <div class="card urgent">
+              <h3>Immediate / emergency</h3>
+              <p>If you are at immediate risk of harm to yourself or others, call <strong>999 / 112</strong> now.</p>
+              <p><strong>NHS 24 (Scotland):</strong> call <strong>111</strong> for urgent health advice.</p>
+              <p><strong>Samaritans (UK & ROI):</strong> free 24/7 listening — <strong>116 123</strong>.</p>
+
+              <div class="cta-row">
+                <a href="tel:999" class="btn btn-danger">Call 999 / 112</a>
+                <a href="tel:116123" class="btn">Call Samaritans</a>
+                <a href="tel:111" class="btn">Call NHS 24</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Immediate but non-emergency</h3>
+              <p class="muted">Search topics or choose a quick suggestion below.</p>
+              <label for="helpSearch" class="search-label">Search topics</label>
+              <input id="helpSearch" class="help-search" placeholder="e.g., anxiety, sleep, exams">
+              <ul id="helpTopics" class="help-list" aria-live="polite">
+                <li>Breathing & grounding</li>
+                <li>Counselling & talking therapies</li>
+                <li>Substance / addiction support</li>
+                <li>Academic adjustments & doctors note</li>
+                <li>Peer support groups</li>
+                <li>Sleep & rest</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tools & Techniques -->
+       <section id="tools" class="tools-section">
+        <h2 id="toolsTitle">Tools & techniques</h2>
+        <div class="card-grid" aria-labelledby="toolsTitle">
+            <!-- 5-4-3-2-1 Grounding Card -->
+            <div class="card card-equal">
+            <h3>5-4-3-2-1 Grounding</h3>
+            <p>Use this technique to anchor yourself in the present. Follow the prompts or use the guided mode.</p>
+            <ol class="compact-ol">
+                <li>Name <strong>5</strong> things you can see.</li>
+                <li>Name <strong>4</strong> things you can feel.</li>
+                <li>Name <strong>3</strong> things you can hear.</li>
+                <li>Name <strong>2</strong> things you can smell.</li>
+                <li>Name <strong>1</strong> thing you can taste (or a positive thought).</li>
+            </ol>
+            <div class="tool-actions">
+                <button id="openGuided" class="btn">Open guided grounding</button>
+                <button id="quickPrompt" class="btn btn-outline">Quick prompt</button>
+            </div>
+            </div>
+
+            <!-- How are you feeling Card -->
+            <div class="card card-equal">
+            <h3>How are you feeling?</h3>
+            <p>Pick the bubble that best matches. If you select a red-flag option, immediate help will be surfaced.</p>
+            <div class="bubbles" role="list" aria-label="Feeling options">
+                <button class="bubble bubble--green" data-level="ok">Calm</button>
+                <button class="bubble bubble--blue" data-level="low">Low</button>
+                <button class="bubble bubble--amber" data-level="anxious">Anxious</button>
+                <button class="bubble bubble--purple" data-level="confused">Overwhelmed</button>
+                <button class="bubble bubble--red" data-level="distress">Distressed</button>
+            </div>
+            </div>
+
+    <!-- Calming tone Card -->
+    <div class="card card-equal">
+      <h3>Calming tone (sine wave)</h3>
+      <p>Play a gentle tone to support slow breathing (user gesture required).</p>
+      <div class="tool-actions">
+        <button id="playTone" class="btn">Play tone</button>
+        <button id="stopTone" class="btn btn-outline">Stop</button>
+      </div>
+      <label for="toneVolume" class="muted">Volume</label>
+      <input id="toneVolume" type="range" min="0" max="1" step="0.01" value="0.25">
+    </div>
+  </div>
+</section>
+
+          
+
+          <div class="card card-equal tone-card">
+            <h3>Calming tone (sine wave)</h3>
+            <p>Play a gentle tone to support slow breathing (user gesture required).</p>
+            <div class="tool-actions">
+              <button id="playTone" class="btn">Play tone</button>
+              <button id="stopTone" class="btn btn-outline">Stop</button>
+            </div>
+            <label for="toneVolume" class="muted">Volume</label>
+            <input id="toneVolume" type="range" min="0" max="1" step="0.01" value="0.25">
+          </div>
+        </section>
+
+        <!-- SWEMWBS -->
+        <section id="swemwbs" class="card" aria-labelledby="swTitle">
+          <h2 id="swTitle">Quick check-in — SWEMWBS</h2>
+          <p class="muted">Response options: 1 = None of the time ... 5 = All of the time. (Wording preserved.)</p>
+
+          <form id="swemForm" class="swem-form" aria-describedby="swNote">
+            <div id="swNote" class="sr-only">Please answer each item to get an automated result.</div>
+            <div class="qgrid">
+              <label class="q">
+                1. I've been feeling optimistic about the future
+                <select name="q1" required><option value="">Choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+              </label>
+              <label class="q">
+                2. I've been feeling useful
+                <select name="q2" required><option value="">Choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+              </label>
+              <label class="q">
+                3. I've been relaxed
+                <select name="q3" required><option value="">Choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+              </label>
+              <label class="q">
+                4. I've been dealing with problems well
+                <select name="q4" required><option value="">Choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+              </label>
+              <label class="q">
+                5. I've been thinking clearly
+                <select name="q5" required><option value="">Choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+              </label>
+              <label class="q">
+                6. I've been able to make up my own mind about things
+                <select name="q6" required><option value="">Choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+              </label>
+              <label class="q">
+                7. I've been feeling close to other people
+                <select name="q7" required><option value="">Choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+              </label>
+            </div>
+
+            <label class="optional">
+              Optional: Anything you'd like to tell us?
+              <textarea name="comment" rows="3" placeholder="Optional additional notes..."></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Submit</button>
+              <button type="button" id="swReset" class="btn btn-outline">Reset</button>
+            </div>
+
+            <div id="swResult" class="sw-result" aria-live="polite" hidden></div>
+          </form>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="card" aria-labelledby="resTitle">
+          <h2 id="resTitle">Further resources</h2>
+          <p class="muted">Multimedia, self-care plans, and links to trusted organisations.</p>
+          <div class="media-grid">
+            <div class="media-card card-equal">
+              <h4>Short grounding video</h4>
+               <div class="media-wrapper">
+                 <iframe
+                  src="https://www.youtube.com/embed/q_L_DiqoRn4?si=IZrFqlUZCeyvumL9"
+                  title="Grounding technique video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+               </div>
+              </div>
+
+            <div class="media-card card-equal">
+              <h4>Guided breathing audio (placeholder)</h4>
+              <div class="media-placeholder">[audio]</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col side-col">
+        <div class="card sticky-card">
+          <h3>Quick links</h3>
+          <ul class="quick-links">
+            <li><a href="#need-help">Need Help</a></li>
+            <li><a href="#swemwbs">SWEMWBS Check-in</a></li>
+            <li><a href="#tools">Grounding Tools</a></li>
+            <li><a href="#resources">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Contact</h3>
+          <p><strong>NHS 24 (Scotland):</strong> 111</p>
+          <p><strong>Samaritans:</strong> 116 123</p>
+          <p class="muted">If at immediate risk, call 999 / 112.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Floating help FAB -->
+  <div class="help-fab">
+    <input type="checkbox" id="helpToggle" class="help-fab__checkbox" />
+    <label for="helpToggle" class="help-fab__button" aria-label="Open help menu">💬</label>
+    <div class="help-fab__menu" role="menu" aria-hidden="true">
+      <ul>
+        <li><a href="#need-help" class="help-link">Need more help</a></li>
+        <li><a href="#resources" class="help-link">Resources</a></li>
+        <li><a href="tel:116123" class="help-link">Call Samaritans — 116 123</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Floating mascot -->
+  <button id="mascotAssist" class="mascot-fab" aria-label="Assistant">
+    <img src="assets/mascot.png" alt="Assistant mascot" />
+  </button>
+
+  <!-- Red flag modal -->
+  <div id="redModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="redTitle">
+    <div class="modal-inner">
+      <h3 id="redTitle">Immediate Support Recommended</h3>
+      <p>Based on your responses, it could help to reach out for support. If you are at immediate risk, call <strong>999 / 112</strong> now.</p>
+      <ul>
+        <li><strong>Samaritans:</strong> 116 123</li>
+        <li><strong>NHS 24 (Scotland):</strong> 111</li>
+      </ul>
+      <div class="modal-actions">
+        <a href="tel:999" class="btn btn-danger">Call Emergency</a>
+        <a href="tel:116123" class="btn">Call Samaritans</a>
+        <button id="closeRed" class="btn btn-outline">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Echo Wellbeing — Created by staff and students</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
