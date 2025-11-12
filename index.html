@@ -127,128 +127,6 @@
 
 
 
-          
-
-<section>
-  <div class="card card-equal tone-card">
-    <h3>Calming tone (sine wave)</h3>
-    <p>Play a gentle tone to support slow breathing (user gesture required).</p>
-    <div class="tool-actions">
-      <button id="playTone" class="btn">Play tone</button>
-      <button id="stopTone" class="btn">Stop</button>
-    </div>
-    <label for="toneVolume" class="muted">Volume</label>
-    <input id="toneVolume" type="range" min="0" max="1" step="0.01" value="0.25">
-
-    <!-- Canvas for sine wave graphic -->
-    <canvas id="sineCanvas" width="400" height="120"></canvas>
-  </div>
-</section>
-
-<style>
-  .tone-card {
-    text-align: center;
-    padding: 1em;
-  }
-  canvas {
-    width: 100%;
-    max-width: 400px;
-    height: 120px;
-    display: block;
-    margin: 1em auto;
-    background: #fafafa;
-    border-radius: 8px;
-  }
-</style>
-
-<script>
-  const playBtn = document.getElementById('playTone');
-  const stopBtn = document.getElementById('stopTone');
-  const volumeControl = document.getElementById('toneVolume');
-  const canvas = document.getElementById('sineCanvas');
-  const ctx = canvas.getContext('2d');
-
-  let audioCtx;
-  let oscillator;
-  let gainNode;
-  let animationFrame;
-  let startTime;
-  let running = false;
-
-  // Draw and animate sine wave
-  function drawSine(time) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    const amplitude = 30;
-    const frequency = 0.01; // controls how many waves fit in canvas
-    const speed = 0.002; // animation speed
-    const centerY = canvas.height / 2;
-
-    // Draw the sine wave line
-    ctx.beginPath();
-    ctx.moveTo(0, centerY);
-    for (let x = 0; x < canvas.width; x++) {
-      const y = centerY + amplitude * Math.sin((x * frequency) + (time * speed));
-      ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = '#888';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    // Circle following the wave
-    const circleX = (time / 5) % canvas.width; // loops smoothly
-    const circleY = centerY + amplitude * Math.sin((circleX * frequency) + (time * speed));
-
-    ctx.beginPath();
-    ctx.arc(circleX, circleY, 8, 0, Math.PI * 2);
-    ctx.fillStyle = '#a259ff'; // purple
-    ctx.fill();
-
-    // Continue animation
-    if (running) {
-      animationFrame = requestAnimationFrame(drawSine);
-    }
-  }
-
-  function startTone() {
-    if (running) return;
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    oscillator = audioCtx.createOscillator();
-    gainNode = audioCtx.createGain();
-
-    oscillator.type = 'sine';
-    oscillator.frequency.value = 440; // A4
-    gainNode.gain.value = volumeControl.value;
-
-    oscillator.connect(gainNode).connect(audioCtx.destination);
-    oscillator.start();
-
-    running = true;
-    startTime = performance.now();
-    drawSine(startTime);
-  }
-
-  function stopTone() {
-    if (!running) return;
-    oscillator.stop();
-    oscillator.disconnect();
-    gainNode.disconnect();
-    cancelAnimationFrame(animationFrame);
-    running = false;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  playBtn.addEventListener('click', startTone);
-  stopBtn.addEventListener('click', stopTone);
-
-  volumeControl.addEventListener('input', () => {
-    if (gainNode) {
-      gainNode.gain.value = volumeControl.value;
-    }
-  });
-</script>
-
-
         <!-- SWEMWBS -->
         <section id="swemwbs" class="card" aria-labelledby="swTitle">
           <h2 id="swTitle">Quick check-in — SWEMWBS</h2>
@@ -384,6 +262,130 @@
     </div>
   </div>
 
+        
+
+
+          
+
+<section>
+  <div class="card card-equal tone-card">
+    <h3>Calming tone (sine wave)</h3>
+    <p>Play a gentle tone to support slow breathing (user gesture required).</p>
+    <div class="tool-actions">
+      <button id="playTone" class="btn">Play tone</button>
+      <button id="stopTone" class="btn">Stop</button>
+    </div>
+    <label for="toneVolume" class="muted">Volume</label>
+    <input id="toneVolume" type="range" min="0" max="1" step="0.01" value="0.25">
+
+    <!-- Canvas for sine wave graphic -->
+    <canvas id="sineCanvas" width="1200" height="400"></canvas>
+  </div>
+</section>
+
+<style>
+  .tone-card {
+    text-align: center;
+    padding: 1em;
+  }
+  canvas {
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    display: block;
+    margin: 1em auto;
+    background: #fafafa;
+    border-radius: 8px;
+  }
+</style>
+
+<script>
+  const playBtn = document.getElementById('playTone');
+  const stopBtn = document.getElementById('stopTone');
+  const volumeControl = document.getElementById('toneVolume');
+  const canvas = document.getElementById('sineCanvas');
+  const ctx = canvas.getContext('2d');
+
+  let audioCtx;
+  let oscillator;
+  let gainNode;
+  let animationFrame;
+  let startTime;
+  let running = false;
+
+  // Draw and animate sine wave
+  function drawSine(time) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const amplitude = 30;
+    const frequency = 0.01; // controls how many waves fit in canvas
+    const speed = 0.002; // animation speed
+    const centerY = canvas.height / 2;
+
+    // Draw the sine wave line
+    ctx.beginPath();
+    ctx.moveTo(0, centerY);
+    for (let x = 0; x < canvas.width; x++) {
+      const y = centerY + amplitude * Math.sin((x * frequency) + (time * speed));
+      ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = '#888';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Circle following the wave
+    const circleX = (time / 5) % canvas.width; // loops smoothly
+    const circleY = centerY + amplitude * Math.sin((circleX * frequency) + (time * speed));
+
+    ctx.beginPath();
+    ctx.arc(circleX, circleY, 8, 0, Math.PI * 2);
+    ctx.fillStyle = '#a259ff'; // purple
+    ctx.fill();
+
+    // Continue animation
+    if (running) {
+      animationFrame = requestAnimationFrame(drawSine);
+    }
+  }
+
+  function startTone() {
+    if (running) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    oscillator = audioCtx.createOscillator();
+    gainNode = audioCtx.createGain();
+
+    oscillator.type = 'sine';
+    oscillator.frequency.value = 440; // A4
+    gainNode.gain.value = volumeControl.value;
+
+    oscillator.connect(gainNode).connect(audioCtx.destination);
+    oscillator.start();
+
+    running = true;
+    startTime = performance.now();
+    drawSine(startTime);
+  }
+
+  function stopTone() {
+    if (!running) return;
+    oscillator.stop();
+    oscillator.disconnect();
+    gainNode.disconnect();
+    cancelAnimationFrame(animationFrame);
+    running = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  playBtn.addEventListener('click', startTone);
+  stopBtn.addEventListener('click', stopTone);
+
+  volumeControl.addEventListener('input', () => {
+    if (gainNode) {
+      gainNode.gain.value = volumeControl.value;
+    }
+  });
+</script>
+
   <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 Echo Wellbeing — Created by staff and students</p>
@@ -393,5 +395,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
