@@ -225,43 +225,8 @@
         </div>
       </aside>
     </section>
-  </main>
 
-  <!-- Floating help FAB -->
-  <div class="help-fab">
-    <input type="checkbox" id="helpToggle" class="help-fab__checkbox" />
-    <label for="helpToggle" class="help-fab__button" aria-label="Open help menu">💬</label>
-    <div class="help-fab__menu" role="menu" aria-hidden="true">
-      <ul>
-        <li><a href="#need-help" class="help-link">Need more help</a></li>
-        <li><a href="#resources" class="help-link">Resources</a></li>
-        <li><a href="tel:116123" class="help-link">Call Samaritans — 116 123</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Floating mascot -->
-  <button id="mascotAssist" class="mascot-fab" aria-label="Assistant">
-    <img src="assets/mascot.png" alt="Assistant mascot" />
-  </button>
-
-  <!-- Red flag modal -->
-  <div id="redModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="redTitle">
-    <div class="modal-inner">
-      <h3 id="redTitle">Immediate Support Recommended</h3>
-      <p>Based on your responses, it could help to reach out for support. If you are at immediate risk, call <strong>999 / 112</strong> now.</p>
-      <ul>
-        <li><strong>Samaritans:</strong> 116 123</li>
-        <li><strong>NHS 24 (Scotland):</strong> 111</li>
-      </ul>
-      <div class="modal-actions">
-        <a href="tel:999" class="btn btn-danger">Call Emergency</a>
-        <a href="tel:116123" class="btn">Call Samaritans</a>
-        <button id="closeRed" class="btn btn-outline">Close</button>
-      </div>
-    </div>
-  </div>
-
+        
         
 
 
@@ -279,7 +244,7 @@
     <input id="toneVolume" type="range" min="0" max="1" step="0.01" value="0.25">
 
     <!-- Canvas for sine wave graphic -->
-    <canvas id="sineCanvas" width="400" height="400"></canvas>
+    <canvas id="sineCanvas" width="800" height="400"></canvas>
   </div>
 </section>
 
@@ -290,7 +255,7 @@
   }
   canvas {
     width: 80%;
-    max-width: 400px;
+    max-width: 800px;
     height: 400px;
     display: block;
     margin: 1em auto;
@@ -385,6 +350,43 @@
     }
   });
 </script>
+  </main>
+
+  <!-- Floating help FAB -->
+  <div class="help-fab">
+    <input type="checkbox" id="helpToggle" class="help-fab__checkbox" />
+    <label for="helpToggle" class="help-fab__button" aria-label="Open help menu">💬</label>
+    <div class="help-fab__menu" role="menu" aria-hidden="true">
+      <ul>
+        <li><a href="#need-help" class="help-link">Need more help</a></li>
+        <li><a href="#resources" class="help-link">Resources</a></li>
+        <li><a href="tel:116123" class="help-link">Call Samaritans — 116 123</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Floating mascot -->
+  <button id="mascotAssist" class="mascot-fab" aria-label="Assistant">
+    <img src="assets/mascot.png" alt="Assistant mascot" />
+  </button>
+
+  <!-- Red flag modal -->
+  <div id="redModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="redTitle">
+    <div class="modal-inner">
+      <h3 id="redTitle">Immediate Support Recommended</h3>
+      <p>Based on your responses, it could help to reach out for support. If you are at immediate risk, call <strong>999 / 112</strong> now.</p>
+      <ul>
+        <li><strong>Samaritans:</strong> 116 123</li>
+        <li><strong>NHS 24 (Scotland):</strong> 111</li>
+      </ul>
+      <div class="modal-actions">
+        <a href="tel:999" class="btn btn-danger">Call Emergency</a>
+        <a href="tel:116123" class="btn">Call Samaritans</a>
+        <button id="closeRed" class="btn btn-outline">Close</button>
+      </div>
+    </div>
+  </div>
+
 
   <footer class="site-footer">
     <div class="container">
@@ -395,6 +397,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
