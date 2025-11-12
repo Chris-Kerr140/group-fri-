@@ -279,7 +279,7 @@
     <input id="toneVolume" type="range" min="0" max="1" step="0.01" value="0.25">
 
     <!-- Canvas for sine wave graphic -->
-    <canvas id="sineCanvas" width="800" height="400"></canvas>
+    <canvas id="sineCanvas" width="400" height="400"></canvas>
   </div>
 </section>
 
@@ -289,8 +289,8 @@
     padding: 1em;
   }
   canvas {
-    width: 100%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 400px;
     height: 400px;
     display: block;
     margin: 1em auto;
@@ -330,7 +330,7 @@
       ctx.lineTo(x, y);
     }
     ctx.strokeStyle = '#888';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 4;
     ctx.stroke();
 
     // Circle following the wave
@@ -395,6 +395,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
