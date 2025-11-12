@@ -273,13 +273,13 @@
     <p>Play a gentle tone to support slow breathing (user gesture required).</p>
     <div class="tool-actions">
       <button id="playTone" class="btn">Play tone</button>
-      <button id="stopTone" class="btn">Stop</button>
+      <button id="stopTone" class="btn">Stop tone</button>
     </div>
     <label for="toneVolume" class="muted">Volume</label>
     <input id="toneVolume" type="range" min="0" max="1" step="0.01" value="0.25">
 
     <!-- Canvas for sine wave graphic -->
-    <canvas id="sineCanvas" width="1200" height="400"></canvas>
+    <canvas id="sineCanvas" width="800" height="400"></canvas>
   </div>
 </section>
 
@@ -290,7 +290,7 @@
   }
   canvas {
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px;
     height: 400px;
     display: block;
     margin: 1em auto;
@@ -395,6 +395,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
